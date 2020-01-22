@@ -41,7 +41,7 @@ namespace LFM_CAM_FACE
                   
                     OnPropertyChanged(new EventArgs());
                 }
-            }
+            } 
         }
 
         private void OnPropertyChanged(EventArgs e)
