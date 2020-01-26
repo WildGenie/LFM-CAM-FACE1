@@ -146,6 +146,7 @@ namespace LFM_CAM_FACE
 
         private void AsyncVideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
+       
             lock (this)
             {
                 if (detector != null)
@@ -171,8 +172,7 @@ namespace LFM_CAM_FACE
                                         {
                                             g.DrawRectangle(pen, recs);
                                             Rosto = temp.Clone(recs, temp.PixelFormat);
-                                    //      Detectorderosto.Instance().detectarrosto(Rosto);
-                                            MainWindow.main.Statusa = Rosto;
+                                         
                                         }
                                         g.Dispose();
                                     }
@@ -181,6 +181,7 @@ namespace LFM_CAM_FACE
                     }
                     else
                     {
+                     
                         MainWindow.main.Statusa = temp;
                     }
                 }

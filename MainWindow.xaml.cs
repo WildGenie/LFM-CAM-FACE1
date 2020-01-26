@@ -1,30 +1,8 @@
 ﻿using System.Windows;
-using AForge.Video.DirectShow;
-using AForge.Video;
 using System;
 using System.Drawing;
-using System.Threading;
-using System.Collections.Generic;
-using AForge.Vision.Motion;
-using Accord.Controls;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-//using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-//using System.Windows.Shapes;
 using DlibDotNet;
-using DlibDotNet.Extensions;
-using System.IO;
-using DlibDotNet.Dnn;
 using Dlib = DlibDotNet.Dlib;
-using Rectangle = DlibDotNet.Rectangle;
 namespace LFM_CAM_FACE
 {
 
@@ -53,14 +31,14 @@ namespace LFM_CAM_FACE
             get { return textBox1_Copy.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { textBox1_Copy.Content = value; })); }
         }
-        internal System.Drawing.Image Statusa
+        internal Image Statusa
         {
             get { return picturebox1.Image; }
             set { Dispatcher.Invoke(new Action(() => { picturebox1.Image = value;
            })); }
         }
 
-        internal System.Drawing.Image Statusa1
+        internal Image Statusa1
         {
             get { return picturebox11.Image; }
             set
@@ -124,28 +102,11 @@ namespace LFM_CAM_FACE
             {
 
                 var image_files = d.FileName;
-                GetImage(image_files);
+              Detectorderosto.Instance().  GetImage(image_files);
 
             }
         }
-        public void GetImage(string imagePath)
-        {
-            using (FrontalFaceDetector fd = Dlib.GetFrontalFaceDetector())
-
-            {
-                Array2D<RgbPixel> img = Dlib.LoadImage<RgbPixel>(imagePath);
-
-                // find all faces in the image
-                var faces = fd.Operator(img);
-                foreach (var face in faces)
-                {
-                    // draw a rectangle for each face
-                    Dlib.DrawRectangle(img, face, color: new RgbPixel(0, 255, 255), thickness: 4);
-                }
-                Dlib.SaveJpeg(img, AppDomain.CurrentDomain.BaseDirectory + "outpuht.jpg");
-                MessageBox.Show("ok");
-            }
-        }
+ 
        
     }
 }

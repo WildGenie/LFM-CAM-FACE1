@@ -5,9 +5,7 @@ using System.Windows.Controls;
 using Accord.Video.DirectShow;
 namespace LFM_CAM_FACE
 {
-    /// <summary>
-    /// Lógica interna para VideoCaptureDeviceForm.xaml
-    /// </summary>
+ 
     public partial class VideoCaptureDeviceForm : Window
     {
         public FilterInfoCollection videoDevices = null;
